@@ -72,7 +72,7 @@ fackerID/
 
    Using venv:
    ```bash
-   python -m venv env
+   python -m venv myenv
    source env/bin/activate  # On Windows: env\Scripts\activate
    ```
 
