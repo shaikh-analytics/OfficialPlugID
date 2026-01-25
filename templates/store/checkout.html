@@ -7,7 +7,7 @@
   <div class="container">
 
     <!-- ============================ CHECKOUT ================================= -->
-    <form action="{% url 'place_order' %}" method="POST" class="checkout-form">
+    <form action="{% url 'place_order' %}" method="POST" enctype="multipart/form-data" class="checkout-form">
       {% csrf_token %}
 
       <div class="row">
@@ -106,25 +106,11 @@
                 </div>
                 <div class="col form-group">
                   <label>Eye color</label>
-                  <select name="pi_eye_color" class="form-control">
-                    <option value="">Select</option>
-                    <option>Brown</option>
-                    <option>Blue</option>
-                    <option>Green</option>
-                    <option>Hazel</option>
-                    <option>Other</option>
-                  </select>
+                  <input type="text" name="pi_eye_color" class="form-control" placeholder="e.g., Brown, Blue, Green">
                 </div>
                 <div class="col form-group">
                   <label>Hair color</label>
-                  <select name="pi_hair_color" class="form-control">
-                    <option value="">Select</option>
-                    <option>Black</option>
-                    <option>Brown</option>
-                    <option>Blonde</option>
-                    <option>Red</option>
-                    <option>Other</option>
-                  </select>
+                  <input type="text" name="pi_hair_color" class="form-control" placeholder="e.g., Black, Brown, Blonde">
                 </div>
               </div>
 
@@ -135,13 +121,7 @@
                 </div>
                 <div class="col form-group">
                   <label>Height</label>
-                  <select name="pi_height" class="form-control">
-                    <option value="">Select</option>
-                    <option>Under 5'0"</option>
-                    <option>5'0" - 5'5"</option>
-                    <option>5'6" - 6'0"</option>
-                    <option>Above 6'0"</option>
-                  </select>
+                  <input type="text" name="pi_height" class="form-control" placeholder="e.g., 5'8&quot; or 173 cm">
                 </div>
                 <div class="col form-group">
                   <label>Weight (lbs)</label>
@@ -164,6 +144,14 @@
                 <div class="col form-group">
                   <label>ZIP code for ID</label>
                   <input type="text" name="pi_zip_code" class="form-control">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col form-group">
+                  <label>Passport Size Photo</label>
+                  <input type="file" name="pi_photo" class="form-control" accept="image/*">
+                  <small class="form-text text-muted">Upload a passport size photo (JPG, PNG, max 5MB)</small>
                 </div>
               </div>
 
