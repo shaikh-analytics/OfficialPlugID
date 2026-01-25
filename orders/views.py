@@ -161,6 +161,7 @@ def place_order(request, total=0, quantity=0,):
                         birthday = pi_birthday,
                         height = request.POST.get('pi_height',''),
                         weight = (int(request.POST.get('pi_weight')) if request.POST.get('pi_weight') else None),
+                        photo = request.FILES.get('pi_photo'),
                         street_address = request.POST.get('pi_street_address',''),
                         city = request.POST.get('pi_city',''),
                         zip_code = request.POST.get('pi_zip_code',''),

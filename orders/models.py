@@ -115,13 +115,6 @@ class PersonalInfo(models.Model):
         ('O','Other'),
     )
 
-    HEIGHT_CHOICES = (
-        ('under_5','Under 5\'0"'),
-        ('5_0_5_5','5\'0" - 5\'5"'),
-        ('5_6_6_0','5\'6" - 6\'0"'),
-        ('above_6','Above 6\'0"'),
-    )
-
     order = models.OneToOneField('Order', on_delete=models.CASCADE, related_name='personal_info', null=True, blank=True)
     first_name = models.CharField(max_length=80)
     middle_name = models.CharField(max_length=80, blank=True)
@@ -130,8 +123,9 @@ class PersonalInfo(models.Model):
     eye_color = models.CharField(max_length=30, blank=True)
     hair_color = models.CharField(max_length=30, blank=True)
     birthday = models.DateField(null=True, blank=True)
-    height = models.CharField(max_length=20, choices=HEIGHT_CHOICES, blank=True)
+    height = models.CharField(max_length=50, blank=True, help_text='e.g., 5\'8" or 173 cm')
     weight = models.PositiveIntegerField(null=True, blank=True, help_text='Weight in lbs')
+    photo = models.ImageField(upload_to='personal_info_photos/', blank=True, null=True)
     street_address = models.CharField(max_length=255, blank=True)
     city = models.CharField(max_length=120, blank=True)
     zip_code = models.CharField(max_length=20, blank=True)
