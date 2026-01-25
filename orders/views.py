@@ -115,6 +115,7 @@ def place_order(request, total=0, quantity=0,):
             data.user = current_user
             data.first_name = form.cleaned_data['first_name']
             data.last_name = form.cleaned_data['last_name']
+            data.phone_code = form.cleaned_data['phone_code']
             data.phone = form.cleaned_data['phone']
             data.email = form.cleaned_data['email']
             data.shipping_address = form.cleaned_data['shipping_address']
