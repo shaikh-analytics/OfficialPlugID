@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="section-content padding-y bg">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title mb-4">Crypto Payment Details</h4>
+
+            <div class="alert alert-info">
+              <strong>Order Number:</strong> {{ order.order_number }}<br>
+              <strong>Total Amount:</strong> ${{ order.order_total }}
+            </div>
+
+            <form action="{% url 'process_payment' %}" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <input type="hidden" name="order_number" value="{{ order.order_number }}">
+              <input type="hidden" name="payment_method" value="CRYPTO">
+
+              <div class="form-group">
+                <label>Crypto Wallet URL <span class="text-danger">*</span></label>
+                <input type="url" name="crypto_wallet_url" class="form-control" placeholder="Enter your crypto wallet URL" required>
+                <small class="form-text text-muted">Please provide the wallet address or transaction URL</small>
+              </div>
+
+              <div class="form-group">
+                <label>Payment Proof Image <span class="text-danger">*</span></label>
+                <input type="file" name="crypto_payment_proof" class="form-control" accept="image/*" required>
+                <small class="form-text text-muted">Upload a screenshot of your payment transaction</small>
+              </div>
+
+              <hr>
+
+              <button type="submit" class="btn btn-success btn-block">
+                <i class="fa fa-check"></i> Submit Payment Details
+              </button>
+              <a href="{% url 'payment_method' %}?order_number={{ order.order_number }}" class="btn btn-light btn-block mt-2">
+                <i class="fa fa-arrow-left"></i> Back to Payment Methods
+              </a>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

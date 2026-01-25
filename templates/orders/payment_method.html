@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="section-content padding-y bg">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title mb-4">Select Payment Method</h4>
+
+            <div class="row">
+              <!-- Direct Payment Option -->
+              <div class="col-md-6 mb-3">
+                <div class="card border-primary h-100">
+                  <div class="card-body text-center">
+                    <i class="fa fa-money fa-3x text-primary mb-3"></i>
+                    <h5 class="card-title">Paypal/Venmo/chashApp Payment</h5>
+                    <p class="card-text">Our admin will assist you with the payment process.</p>
+                    <form action="{% url 'process_payment' %}" method="POST">
+                      {% csrf_token %}
+                      <input type="hidden" name="order_number" value="{{ order.order_number }}">
+                      <input type="hidden" name="payment_method" value="DIRECT">
+                      <button type="submit" class="btn btn-primary btn-block">
+                        Choose Direct Payment
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Crypto Payment Option -->
+              <div class="col-md-6 mb-3">
+                <div class="card border-success h-100">
+                  <div class="card-body text-center">
+                    <i class="fa fa-bitcoin fa-3x text-success mb-3"></i>
+                    <h5 class="card-title">Crypto Payment</h5>
+                    <p class="card-text">Pay with cryptocurrency and upload payment proof.</p>
+                    <a href="{% url 'crypto_payment' %}?order_number={{ order.order_number }}" class="btn btn-success btn-block">
+                      Choose Crypto Payment
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-info mt-3">
+              <strong>Order Number:</strong> {{ order.order_number }}<br>
+              <strong>Total Amount:</strong> ${{ order.order_total }}
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="section-content padding-y bg">
+  <div class="container">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="mb-4">Frequently Asked Questions</h2>
+
+        <!-- Scanning & Functionality -->
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-qrcode"></i> Do they scan?</h5>
+          <p>Yes. It's 2026, any fake from a reputable vendor (like the ones here) will scan just fine. Tik-Tok is lying to you; they work. Please message the vendor if the novelty you received does not scan and they will take care of it.</p>
+        </div>
+
+        <!-- Shipping & Delivery -->
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-truck"></i> When will my order ship?</h5>
+          <p>Orders are shipped ~1 week after payment confirmation.</p>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-clock-o"></i> How long until I get my order?</h5>
+          <p>2-3 weeks after placing the order. This isn't Amazon, be patient.</p>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-question-circle"></i> My order is stuck on "departed USPS partner facility"</h5>
+          <p>Your package is not actually in the US yet, it may take 10 or more days for the tracking to update. "Arrived at USPS facility" means it made it through customs.</p>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-exclamation-triangle"></i> My order got seized, what happens now?</h5>
+          <p>The vendor will reprint and reship your order, no need to worry. Reach out to them here or over email with a screenshot of the tracking so they can better assist you.</p>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-home"></i> Can I ship to a college mail room?</h5>
+          <p>Yes, the campus workers are legally not allowed to open your mail; just like they can't search your dorm unannounced.</p>
+        </div>
+
+        <!-- Product & Verification -->
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-check-circle"></i> Can I see proof these guys are legit?</h5>
+          <p>The pictures posted on the websites are the exact product you will receive.</p>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-copy"></i> What does the 'duplicate' option mean at checkout?</h5>
+          <p>All orders automatically come with one free duplicate (2 per person). For an additional $20 you can get one or two more duplicates (3 or 4 total IDs).</p>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-shield"></i> What is a "Lense"?</h5>
+          <p>A Lense on an ID is a security feature that some states use. It's placed at the bottom right of an ID.</p>
+        </div>
+
+        <!-- Privacy & Stealth -->
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-lock"></i> Mommy and Daddy open my mail, will they find the cards?</h5>
+          <p>All vendors use stealth shipping methods. If the order can get past customs, it can get past your nosy parents.</p>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-wrench"></i> How tf do I open the item? (if you get the thing you'll know what I mean)</h5>
+          <p>One side should have a slight gap around the bottom panel and the sides, use a dull butter knife or a screwdriver to pry it open.</p>
+        </div>
+
+        <!-- Payment -->
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-bitcoin"></i> I want to pay with crypto but cannot or do not know how.</h5>
+          <p>Hit up one of the verified BTC transferers in the #middle-man-crypto channel. Each middleman charges their own rate and accepts various payment methods.</p>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-credit-card"></i> What do I enter on the payment confirmation page?</h5>
+          <p><strong>Sent Total In BTC:</strong> Amount of BTC you sent to the BTC address<br>
+          <strong>BTC Address:</strong> Enter the BTC address you sent the BTC to.</p>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-check"></i> How long does it take for my payment to be confirmed?</h5>
+          <p>24-48 Hours after you submit payment info.</p>
+        </div>
+
+        <!-- Photo Requirements -->
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-camera"></i> Can I use a passport photo?</h5>
+          <p>For the love of God please do not use a passport photo. IF AND ONLY IF you can get a digital copy directly from the place that took it should you consider it.</p>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-camera"></i> How do I take a good photo?</h5>
+          <p>Use the front facing camera on your phone and stand 4 feet away from a solid colored background. Make sure there are no open windows and there are no shadows on your face. The most important part of the photo is even lighting on your face. Use the flash.</p>
+        </div>
+
+        <!-- Personal Information -->
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-user"></i> Should I use my real name?</h5>
+          <p>We recommend using your real name in case a bouncer asks for a second form of identification (credit card, student ID etc).</p>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-id-card"></i> What do I enter for the ISS date and the DL#?</h5>
+          <p>Rule of thumb, if you don't know what to enter, leave it blank. We will provide these numbers for you accurately.</p>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-info-circle"></i> What is a CDL?</h5>
+          <p>Google says "A commercial driver's license is a driver's license required in the United States to operate large and heavy vehicles or a vehicle of any size that transports hazardous materials or more than 15 passengers."</p>
+        </div>
+
+        <!-- Support & Contact -->
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-envelope"></i> I contacted a vendor, how long will it take for them to get back to me?</h5>
+          <p>They will get back to you within 24 hours. Sometimes longer. Be patient as they have different time zones.</p>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-sign-in"></i> Why can I not log into my account?</h5>
+          <p>Please use your email when logging into your account, do not use your username.</p>
+        </div>
+
+        <!-- Order Issues -->
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-edit"></i> I accidentally entered some wrong info and or I need some info changed on my ID, but I already paid and it's been confirmed, What do I do?</h5>
+          <p>Unfortunately, we won't change your info if the order has already been confirmed.</p>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-warning"></i> My ID came incorrectly printed, what should happen?</h5>
+          <p>If your ID was misprinted, We will reprint the ID and reship it FREE of charge. If YOU entered the info wrong when you ordered it, that is on you. You will have to pay us a small fee (Depending on how many errors and ID's etc).</p>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-map-marker"></i> What happens if I entered some shipping details incorrectly?</h5>
+          <p>You will have to pay us a fee to remake the ID's and have them resent to the correct address.</p>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-undo"></i> What happens if my order got returned back to sender?</h5>
+          <p>In this scenario, we never actually receive the package back. If it was an issue on your end the vendor will charge a fee to reprint your order. If not, they will send out a new one.</p>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="text-primary"><i class="fa fa-refresh"></i> My tracking has not updated for a while, should I be worried?</h5>
+          <p>No, this is normal as it has to pass through customs.</p>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="alert alert-info mt-4">
+          <h5><i class="fa fa-lightbulb-o"></i> Important Note</h5>
+          <p class="mb-0">There isn't really an objective answer to choosing which state ID to get. The main rule to follow is do not get a fake of the state you live in/ go to school in. Bouncers, clerks, etc. see hundreds of in-state ID's every week. Even the slightest differences in a fake will be noticeable to them.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

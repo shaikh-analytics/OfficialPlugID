@@ -1,0 +1,82 @@
+
+/* ...existing code... */
+
+/* Page background: subtle blue gradient and readable text */
+body{
+  background: linear-gradient(135deg, #e6f7ff 0%, #d4ecff 50%, #c2e2ff 100%);
+  min-height: 100vh;
+  color: hsl(210, 74%, 17%); /* adjust if you want lighter/darker text */
+}
+
+/* Keep cards and content panels white/raised for contrast */
+.card, .card-body, .box {
+  background: rgba(255,255,255,0.98);
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(10, 30, 60, 0.06);
+}
+
+/* ...existing code... */
+
+/* Hide Radio button */
+.rate > input{
+  display: none;
+}
+
+.rate{
+  display: inline-block;;
+  border: 0;
+}
+
+.rate > label{
+  float: right;
+}
+
+/* Showing the stars */
+.rate > label:before{
+  display: inline-block;
+  font-size: 1.1rem;
+  font-family: FontAwesome;
+  content: "\f005";
+  margin:0;
+  padding:0.3rem .2rem;
+  cursor: pointer;
+}
+
+/* Half star */
+.rate .half:before{
+  content: "\f089";
+  position: absolute;
+  padding-right: 0;
+}
+
+/* Click and hover */
+input:checked ~ label, label:hover ~ label{
+  color: #ffb503;
+}
+
+/* hover hightlight */
+input:checked + label:hover, input:checked ~ label:hover,input:checked ~ label:hover ~ label,
+label:hover ~ input:checked ~ label{
+  color: #cc9000;
+}
+
+.rating-star i{
+  color: #ffb503 !important;
+}
+
+ul.thumb{
+  margin:0 auto;
+  padding: 0;
+  float: left;
+}
+ul.thumb li{
+  list-style: none;
+  margin: 10px;
+}
+ul.thumb li img{
+  width: 80px;
+  height: 80px;
+  border: 1px solid grey;
+}
+
+

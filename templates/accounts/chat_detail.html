@@ -1,0 +1,77 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="section-content padding-y bg">
+  <div class="container">
+    <div class="card ticket-card">
+      <div class="card-body">
+        <h4>Ticket #{{ ticket.id }} — {{ ticket.subject }}</h4>
+        <p class="small text-muted">Status: {{ ticket.get_status_display }} • Last updated {{ ticket.updated_at|date:"M d, Y H:i" }}</p>
+        <hr>
+        <!-- ...existing code... -->
+        <hr>
+
+        <div class="ticket-messages">
+          {% for m in messages %}
+            {% if m.sender %}
+              {% if m.sender.is_staff %}
+                <div class="msg admin">
+                  <div class="meta">
+                    <strong>{{ m.sender.get_full_name|default:m.sender.email }}</strong>
+                    <span class="badge badge-sm badge-primary" style="margin-left:8px;">Admin</span>
+                    <small class="text-muted" style="margin-left:8px;">• {{ m.created_at|date:"M d, Y H:i" }}</small>
+                  </div>
+                  <div class="body">{{ m.message|linebreaks }}</div>
+                  {% if m.image %}
+                    <a href="{{ m.image.url }}" target="_blank"><img src="{{ m.image.url }}" alt=""></a>
+                  {% endif %}
+                </div>
+              {% else %}
+                <div class="msg user">
+                  <div class="meta">
+                    <small class="text-muted">{{ m.created_at|date:"M d, Y H:i" }}</small>
+                    <strong style="display:block; margin-top:6px;">{{ m.sender.get_full_name|default:m.sender.email }}</strong>
+                    <span class="badge badge-sm badge-secondary" style="margin-left:6px;">User</span>
+                  </div>
+                  <div class="body">{{ m.message|linebreaks }}</div>
+                  {% if m.image %}
+                    <a href="{{ m.image.url }}" target="_blank"><img src="{{ m.image.url }}" alt=""></a>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% else %}
+              <div class="msg admin">
+                <div class="meta">System • {{ m.created_at|date:"M d, Y H:i" }}</div>
+                <div class="body">{{ m.message|linebreaks }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <hr>
+
+        {% if can_post %}
+        <form method="post" enctype="multipart/form-data" class="ticket-form">
+          {% csrf_token %}
+          <div class="form-group">
+            {{ form.message }}
+          </div>
+          <div class="form-group">
+            {{ form.image }}
+          </div>
+          <button class="btn btn-primary" type="submit">Send</button>
+        </form>
+        {% else %}
+        <div class="alert alert-warning">
+          This ticket is closed. To continue the conversation please
+          <a href="{% url 'chat_list' %}">create a new ticket</a>.
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+<!-- ...existing

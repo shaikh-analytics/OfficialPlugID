@@ -1,0 +1,34 @@
+# Core Framework
+Django==3.1.14
+
+# Python Configuration
+python-decouple==3.8
+
+# Admin Enhancements
+django-admin-honeypot==1.1.0
+django-admin-thumbnails==0.2.8
+
+# Session Management
+django-session-timeout==0.1.0
+
+# Image Processing (required for ImageField in models)
+Pillow==10.4.0
+
+# HTTP Requests
+requests==2.32.3
+certifi==2024.8.30
+urllib3==2.2.3
+idna==3.10
+charset-normalizer==3.4.0
+
+# Timezone Support
+pytz==2024.2
+
+# Database
+sqlparse==0.5.2
+
+# ASGI Support
+asgiref==3.8.1
+
+# Utilities
+six==1.16.0

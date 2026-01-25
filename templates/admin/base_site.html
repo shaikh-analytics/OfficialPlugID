@@ -1,0 +1,259 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | OfficialFakeID{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">
+    <a href="{% url 'admin:index' %}">
+        <img src="{% static 'images/logo1.png' %}" alt="OfficialFakeID" height="40" style="vertical-align: middle; margin-right: 10px;">
+        OfficialFakeID Administration
+    </a>
+</h1>
+{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+    /* Custom Admin Styling - Modern Dark Theme */
+    #header {
+        background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+        color: #fff;
+        border-bottom: 3px solid #10b981;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    #branding h1, #branding h1 a:link, #branding h1 a:visited {
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 24px;
+    }
+
+    #site-name a:hover {
+        color: #10b981;
+        text-decoration: none;
+    }
+
+    div.breadcrumbs {
+        background: #2d3748;
+        color: #fff;
+        border-bottom: 2px solid #10b981;
+    }
+
+    div.breadcrumbs a {
+        color: #10b981;
+        text-decoration: underline;
+    }
+
+    div.breadcrumbs a:hover {
+        color: #34d399;
+    }
+
+    .module h2, .module caption, .inline-group h2 {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: #fff;
+        font-weight: 500;
+    }
+
+    .button, input[type=submit], input[type=button], .submit-row input, button {
+        background: #10b981;
+        border: none;
+        border-radius: 6px;
+        padding: 10px 15px;
+        color: white;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .button:hover, input[type=submit]:hover, input[type=button]:hover, .submit-row input:hover, button:hover {
+        background: #059669;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .button.default, input[type=submit].default, .submit-row input.default {
+        background: #2d3748;
+        border: 2px solid #10b981;
+    }
+
+    .button.default:hover, input[type=submit].default:hover, .submit-row input.default:hover {
+        background: #1a202c;
+        border-color: #059669;
+    }
+
+    a:link, a:visited {
+        color: #10b981;
+    }
+
+    a:hover {
+        color: #059669;
+    }
+
+    .module h2 a, .module caption a {
+        color: #fff;
+    }
+
+    #user-tools a {
+        color: #10b981;
+        border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+        font-weight: 500;
+    }
+
+    #user-tools a:hover {
+        border-bottom-color: #10b981;
+        color: #34d399;
+    }
+
+    .object-tools a {
+        background: #10b981;
+        border-radius: 6px;
+        padding: 8px 15px;
+    }
+
+    .object-tools a:hover {
+        background: #059669;
+        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+    }
+
+    .selector-chosen h2 {
+        background: #10b981;
+        color: #fff;
+    }
+
+    .calendar td a, .calendarbox .calendarnav-previous, .calendarbox .calendarnav-next {
+        color: #10b981;
+    }
+
+    .calendar td a:hover, .calendarbox .calendarnav-previous:hover, .calendarbox .calendarnav-next:hover {
+        color: #059669;
+        background: #ecfdf5;
+    }
+
+    .paginator a:link, .paginator a:visited {
+        background: #10b981;
+        color: #fff;
+        border-radius: 4px;
+        padding: 5px 10px;
+    }
+
+    .paginator a:hover {
+        background: #059669;
+    }
+
+    input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus,
+    input[type="url"]:focus, input[type="number"]:focus, textarea:focus, select:focus {
+        border-color: #10b981;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    }
+
+    .errornote {
+        background: #ef4444;
+        border-radius: 6px;
+        padding: 12px;
+        border-left: 4px solid #dc2626;
+    }
+
+    .success, .messagelist .success {
+        background: #10b981;
+        border-radius: 6px;
+        border-left: 4px solid #059669;
+    }
+
+    .warning, .messagelist .warning {
+        background: #f59e0b;
+        border-radius: 6px;
+        border-left: 4px solid #d97706;
+    }
+
+    ul.messagelist li {
+        border-radius: 6px;
+        margin-bottom: 10px;
+    }
+
+    .deletelink-box {
+        background: #ef4444;
+        border-radius: 6px;
+    }
+
+    .deletelink-box:hover {
+        background: #dc2626;
+    }
+
+    fieldset.module {
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        border: 1px solid #e5e7eb;
+    }
+
+    .dashboard .module table th {
+        background: #f3f4f6;
+        color: #1f2937;
+        font-weight: 600;
+    }
+
+    .dashboard .module table td {
+        padding: 10px;
+    }
+
+    .dashboard .module table tr:hover {
+        background: #f9fafb;
+    }
+
+    .dashboard .module {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        border: 1px solid #e5e7eb;
+    }
+
+    /* Enhanced styling for change list */
+    #changelist .actions {
+        background: #f9fafb;
+        border-radius: 6px;
+        padding: 10px;
+        border: 1px solid #e5e7eb;
+    }
+
+    #changelist-form .results {
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    #changelist table thead th {
+        background: #2d3748;
+        color: #fff;
+        border-bottom: 2px solid #10b981;
+    }
+
+    #changelist table tbody tr:hover {
+        background: #ecfdf5;
+    }
+
+    /* Form styling */
+    .form-row {
+        padding: 15px 0;
+    }
+
+    .aligned label {
+        font-weight: 600;
+        color: #1f2937;
+    }
+
+    /* Sidebar styling */
+    #content-related h3 {
+        background: #2d3748;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 6px 6px 0 0;
+    }
+
+    #content-related .module {
+        border: 1px solid #e5e7eb;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+</style>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
