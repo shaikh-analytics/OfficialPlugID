@@ -1,5 +1,6 @@
 # Core Framework
 Django==3.1.14
+setuptools>=65.5.0
 
 # Python Configuration
 python-decouple==3.8
