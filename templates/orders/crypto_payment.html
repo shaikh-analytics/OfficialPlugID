@@ -16,21 +16,55 @@
               <strong>Total Amount:</strong> ${{ order.order_total }}
             </div>
 
+            <!-- Payment Instructions -->
+            <div class="alert alert-warning">
+              <h5 class="mb-3"><i class="fa fa-info-circle"></i> Payment Instructions</h5>
+              <p class="mb-0">Please send the payment to the BTC wallet address below, then upload your proof of payment to complete your order.</p>
+            </div>
+
+            <!-- BTC Wallet Address Section -->
+            <div class="card mb-4" style="background-color: #f8f9fa;">
+              <div class="card-body text-center">
+                <h5 class="mb-3">BTC Wallet Address</h5>
+
+                <!-- QR Code Scanner -->
+                <div class="mb-3">
+                  <img src="{% static 'images/btc_scanner.jpeg' %}" alt="BTC QR Code" class="img-fluid" style="max-width: 250px; border: 2px solid #ddd; border-radius: 8px;">
+                </div>
+
+                <!-- Wallet Address -->
+                <div class="form-group">
+                  <label class="font-weight-bold">Scan QR Code or Copy Address:</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control text-center" value="143eMoQMrABjWuvghRFZqoEXFeCwBfHmxP" readonly id="btcAddress" style="font-size: 14px; font-family: monospace;">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button" onclick="copyBTCAddress()">
+                        <i class="fa fa-copy"></i> Copy
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <form action="{% url 'process_payment' %}" method="POST" enctype="multipart/form-data">
               {% csrf_token %}
               <input type="hidden" name="order_number" value="{{ order.order_number }}">
               <input type="hidden" name="payment_method" value="CRYPTO">
+              <input type="hidden" name="crypto_wallet_url" value="143eMoQMrABjWuvghRFZqoEXFeCwBfHmxP">
 
-              <div class="form-group">
-                <label>Crypto Wallet URL <span class="text-danger">*</span></label>
-                <input type="url" name="crypto_wallet_url" class="form-control" placeholder="Enter your crypto wallet URL" required>
-                <small class="form-text text-muted">Please provide the wallet address or transaction URL</small>
-              </div>
+              <!-- Upload Payment Proof Section -->
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="mb-3"><i class="fa fa-upload"></i> Upload Payment Proof</h5>
+                  <p class="text-muted mb-3">After completing the payment, please upload a screenshot or proof of your transaction below.</p>
 
-              <div class="form-group">
-                <label>Payment Proof Image <span class="text-danger">*</span></label>
-                <input type="file" name="crypto_payment_proof" class="form-control" accept="image/*" required>
-                <small class="form-text text-muted">Upload a screenshot of your payment transaction</small>
+                  <div class="form-group">
+                    <label>Payment Proof Image <span class="text-danger">*</span></label>
+                    <input type="file" name="crypto_payment_proof" class="form-control" accept="image/*" required>
+                    <small class="form-text text-muted">Accepted formats: JPG, PNG, JPEG</small>
+                  </div>
+                </div>
               </div>
 
               <hr>
@@ -42,6 +76,16 @@
                 <i class="fa fa-arrow-left"></i> Back to Payment Methods
               </a>
             </form>
+
+            <script>
+              function copyBTCAddress() {
+                var copyText = document.getElementById("btcAddress");
+                copyText.select();
+                copyText.setSelectionRange(0, 99999);
+                document.execCommand("copy");
+                alert("BTC address copied: " + copyText.value);
+              }
+            </script>
 
           </div>
         </div>

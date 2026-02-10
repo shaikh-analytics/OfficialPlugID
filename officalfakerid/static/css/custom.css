@@ -1,11 +1,11 @@
 
 /* ...existing code... */
 
-/* Page background: subtle blue gradient and readable text */
+/* Page background: dark purple gradient and white text */
 body{
-  background: linear-gradient(135deg, #e6f7ff 0%, #d4ecff 50%, #c2e2ff 100%);
+  background: linear-gradient(135deg, #2d1b4e 0%, #4a2c6b 50%, #5d3a7f 100%);
   min-height: 100vh;
-  color: hsl(210, 74%, 17%); /* adjust if you want lighter/darker text */
+  color: #ffffff !important;
 }
 
 /* Keep cards and content panels white/raised for contrast */
@@ -86,9 +86,49 @@ ul.thumb li img{
 /* ...existing code... */
 
 html, body {
-  background: linear-gradient(135deg, #e6f7ff 0%, #d4ecff 50%, #c2e2ff 100%) !important;
+  background: linear-gradient(135deg, #2d1b4e 0%, #4a2c6b 50%, #5d3a7f 100%) !important;
   min-height: 100vh;
-  color: hsl(210, 74%, 17%) !important;
+  color: #ffffff !important;
+}
+
+/* Text on white cards/areas should be dark */
+.card, .card *,
+.card-body, .card-body *,
+.box, .box *,
+table, table * {
+  color: #212529 !important;
+}
+
+/* Navbar and footer keep white text */
+.navbar, .navbar *,
+.section-header, .section-header *,
+.header-main, .header-main *,
+.section-footer, .section-footer * {
+  color: #ffffff !important;
+}
+
+/* Dropdown menus have dark text on white background */
+.dropdown-menu, .dropdown-menu * {
+  color: #212529 !important;
+}
+
+.dropdown-menu a:hover, .dropdown-item:hover {
+  color: #ffffff !important;
+  background-color: #3167eb !important;
+}
+
+/* All buttons have white text - highest priority */
+.btn, .btn *,
+.btn-primary, .btn-primary *,
+.btn-outline-primary, .btn-outline-primary *,
+button, button *,
+a.btn, a.btn * {
+  color: #ffffff !important;
+}
+
+/* Links in cards stay blue for visibility */
+.card a:not(.btn), table a:not(.btn) {
+  color: #3167eb !important;
 }
 
 

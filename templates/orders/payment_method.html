@@ -17,8 +17,8 @@
                 <div class="card border-primary h-100">
                   <div class="card-body text-center">
                     <i class="fa fa-money fa-3x text-primary mb-3"></i>
-                    <h5 class="card-title">Paypal/Venmo/chashApp Payment</h5>
-                    <p class="card-text">Our admin will assist you with the payment process.</p>
+                    <h5 class="card-title">Paypal/Venmo/cashApp Payment</h5>
+                    <p class="card-text">Our admin will assist you with the payment process and 10% charges applied.</p>
                     <form action="{% url 'process_payment' %}" method="POST">
                       {% csrf_token %}
                       <input type="hidden" name="order_number" value="{{ order.order_number }}">
